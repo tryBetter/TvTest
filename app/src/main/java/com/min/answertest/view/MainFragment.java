@@ -4,13 +4,15 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hanks.htextview.HTextView;
 import com.min.answertest.R;
 import com.min.answertest.bean.CardInfo;
+import com.min.answertest.util.MyTexts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +25,14 @@ public class MainFragment extends Fragment {
 
     private View rootView;
 
-    private RecyclerView recyclerCard;
+    private ScaleRecyclerView recyclerCard;
 
     private List<CardInfo> dataList = new ArrayList<>();
 
-    private String[] titleList = {"历史题目","人文题目","地理题目","急转弯题目"};
+    HTextView tvExplain;
 
+    private String[] titleList = {"历史题目","人文题目","地理题目","急转弯题目"};
+    private int[] imageList = {R.drawable.history,R.drawable.people,R.drawable.timg,R.drawable.turnhead};
     private RecycleAdapter adapter;
     @Nullable
     @Override
@@ -42,21 +46,14 @@ public class MainFragment extends Fragment {
             rootView = inflater.inflate(R.layout.fragment_main, container, false);
             initialize();
         }
-
         return rootView;
     }
 
     private void initialize() {
         initParams();
         initView();
+        initListener();
         initData();
-    }
-
-    private void initData() {
-        for(String title : titleList){
-            dataList.add(new CardInfo(title,R.mipmap.ic_launcher,""));
-        }
-        adapter.notifyDataSetChanged();
     }
 
     private void initParams() {
@@ -64,8 +61,47 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        recyclerCard = (RecyclerView) rootView.findViewById(R.id.recycler_card);
-        recyclerCard.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerCard = (ScaleRecyclerView) rootView.findViewById(R.id.recycler_card);
+        tvExplain = (HTextView) rootView.findViewById(R.id.tv_explain);
+        recycleViewSetup();
+    }
+
+    private void initListener() {
+        adapter.setOnItemStateListener(new RecycleAdapter.OnItemStateListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onFocuseChange(View view, int position) {
+                tvExplain.animateText(MyTexts.EXPLAINS[position]);
+            }
+        });
+    }
+
+    private void initData() {
+        for (int i = 0; i < titleList.length; i++) {
+            dataList.add(new CardInfo(titleList[i], imageList[i], ""));
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
+    private void recycleViewSetup() {
+        LinearLayoutManager llmanager =
+                new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerCard.setLayoutManager(llmanager);
+
+        int itemSpace = getResources().
+                getDimensionPixelSize(R.dimen.dp20);
+        recyclerCard.addItemDecoration(new SpaceItemDecoration(itemSpace));
         recyclerCard.setAdapter(adapter);
     }
 }

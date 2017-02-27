@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.min.answertest.R;
@@ -19,11 +20,10 @@ import java.util.List;
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.CardHolder> {
 
     private LayoutInflater inflater;
-    private Context context;
     private List<CardInfo> dataList;
+    private OnItemStateListener mListener;
 
     public RecycleAdapter(Context context, List<CardInfo> dataList) {
-        this.context = context;
         this.dataList = dataList;
         inflater = LayoutInflater.from(context);
     }
@@ -37,6 +37,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.CardHold
     @Override
     public void onBindViewHolder(RecycleAdapter.CardHolder holder, int position) {
         holder.tvTitle.setText(dataList.get(position).title);
+        holder.imageTop.setImageResource(dataList.get(position).ImageId);
     }
 
     @Override
@@ -44,13 +45,42 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.CardHold
         return dataList == null ? 0 : dataList.size();
     }
 
-    static class CardHolder extends RecyclerView.ViewHolder {
+    class CardHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnFocusChangeListener {
 
         private TextView tvTitle;
+        private ImageView imageTop;
+        FocusRelativeLayout mRelativeLayout;
 
         public CardHolder(View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(R.id.tv_card_title);
+            imageTop = (ImageView) itemView.findViewById(R.id.img_type);
+            mRelativeLayout = (FocusRelativeLayout) itemView.findViewById(R.id.layout_focuse);
+            mRelativeLayout.setOnClickListener(this);
+            mRelativeLayout.setOnFocusChangeListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onItemClick(v, getAdapterPosition());
+            }
+        }
+
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (mListener != null) {
+                mListener.onFocuseChange(v, getAdapterPosition());
+            }
+        }
+    }
+
+    public void setOnItemStateListener(OnItemStateListener listener) {
+        mListener = listener;
+    }
+
+    public interface OnItemStateListener {
+        void onItemClick(View view, int position);
+        void onFocuseChange(View view, int position);
     }
 }

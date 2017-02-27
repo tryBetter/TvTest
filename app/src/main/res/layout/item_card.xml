@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.min.answertest.view.FocusRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_focuse"
     style="@style/base_match_match"
-    android:orientation="vertical">
+    android:background="@color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:focusable="true">
 
     <android.support.v7.widget.CardView
         style="@style/base_wrap_wrap"
-        card:cardBackgroundColor="#ff110d"
-        card:cardCornerRadius="10dp"
-        card:cardElevation="8dp"
-        card:contentPadding="20dp">
+        android:layout_margin="@dimen/dp8"
+        card:cardBackgroundColor="@color/white"
+        card:cardCornerRadius="@dimen/dp8"
+        card:cardElevation="@dimen/dp10"
+        card:contentPadding="@dimen/dp10">
 
-        <TextView
-            android:id="@+id/tv_card_title"
+        <LinearLayout
             style="@style/base_wrap_wrap"
-            android:background="@drawable/card_focuse"
-            android:text="@string/history"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/card_text_size" />
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_type"
+                android:layout_width="@dimen/dp130"
+                android:layout_height="@dimen/dp130"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_card_title"
+                style="@style/base_wrap_wrap"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/history"
+                android:textColor="@color/black3"
+                android:textSize="@dimen/sp25" />
+        </LinearLayout>
+
     </android.support.v7.widget.CardView>
-</LinearLayout>
+</com.min.answertest.view.FocusRelativeLayout>
