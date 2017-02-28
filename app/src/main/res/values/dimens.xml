@@ -2,6 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
 
     <dimen name="dp4">4dp</dimen>
+    <dimen name="dp6">6dp</dimen>
     <dimen name="dp8">8dp</dimen>
     <dimen name="dp10">10dp</dimen>
     <dimen name="dp12">12dp</dimen>
@@ -15,6 +16,7 @@
     <dimen name="dp30">30dp</dimen>
     <dimen name="dp120">120dp</dimen>
     <dimen name="dp130">130dp</dimen>
+    <dimen name="dp160">160dp</dimen>
 
     <dimen name="sp25">25sp</dimen>
 

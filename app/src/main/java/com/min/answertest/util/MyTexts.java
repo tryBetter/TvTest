@@ -5,10 +5,22 @@ package com.min.answertest.util;
  */
 
 public class MyTexts {
-    public static String HISTORY_EXPLAIN="中国历史是华夏大地各个民族组成";
-//    public static String HISTORY_EXPLAIN="中国历史是华夏大地各个民族组成，中华民族诞育和发展的历史。中华文明历经原始社会、奴隶社会、封建社会至于现代社会，绵延五千年不断延续发展，是世界上最古老最具影响的文明之一。中国古代曾依靠先进文化和发达的生产力建立诸多鼎盛强大的王朝，文化波及欧亚大陆，尤其对东亚各国具有很大影响。西方工业革命后，由于社会制度和生产力的停滞不前，中国逐渐落后于西方国家。公元1911年辛亥革命推翻帝制，中国开始步入现代社会。中华人民共和国建立后，中国走上了社会主义振兴中华的道路。";
-    public static String PEOPLE_EXPLAIN="人文就是人类文化中的先进部分和核心部分，即先进的价值观及其规范。其集中体现是：重视人，尊重人，关心人，爱护人。简而言之，人文，即重视人的文化。人文，是一个动态的概念。《辞海》中这样写道：“人文指人类社会的各种文化现象”。我们知道，文化是人类或者一个民族、一个人群共同具有的符号、价值观及其规范。符号是文化的基础，价值观是文化的核心，而规范，包括习惯规范、道德规范和法律规范则是文化的主要内容。人文是指人类文化中的先进的、科学的、优秀的、健康的部分。";
-    public static String DILI_EXPLAIN="地理（Geography）是研究地球表面的地理环境中各种自然现象和人文现象，以及它们之间相互关系的学科。“地理”一词最早见于中国《易经》。古代的地理学主要探索关于地球形状、大小有关的测量方法，或对已知的地区和国家进行描述。地理学是研究地球表面的地理环境中各种自然现象和人文现象，以及它们之间相互关系的学科。地理是一门综合性的基础学科。";
-    public static String TURN_HEAD_EXPLAIN="脑筋急转弯最早起源于古代印度。就是指当思维遇到特殊的阻碍时，要很快的离开习惯的思路，从别的方面来思考问题。现在泛指一些不能用通常的思路来回答的智力问答题。脑筋急转弯分类比较广泛：有益智类，搞笑类，数学类，成人类等。 脑筋急转弯是种娱乐方式，同时也是一种大众化的文字游戏。";
-    public static String[] EXPLAINS= {HISTORY_EXPLAIN,PEOPLE_EXPLAIN,DILI_EXPLAIN,TURN_HEAD_EXPLAIN};
+    public static String HISTORY_KEY_WORD="历史题目";
+    public static String PEOPLE_KEY_WORD="人文题目";
+    public static String GEOGRAPHY_KEY_WORD="地理题目";
+    public static String BRAIN_TWISTER_KEY_WORD="急转弯题目";
+
+    public static int HISTORY_TEST_LEVEL=5;
+    public static int PEOPLE_TEST_LEVEL=4;
+    public static int GEOGRAPHY_TEST_LEVEL=5;
+    public static int BRAIN_TWISTER_TEST_LEVEL=6;
+
+    public static int HISTORY_HIGH_SCORE=90;
+    public static int PEOPLE_HIGH_SCORE=96;
+    public static int GEOGRAPHY_HIGH_SCORE=87;
+    public static int BRAIN_TWISTER_HIGH_SCORE=80;
+
+    public static String[] KEY_WORD = {HISTORY_KEY_WORD,PEOPLE_KEY_WORD,GEOGRAPHY_KEY_WORD,BRAIN_TWISTER_KEY_WORD};
+    public static int[] LEVEL= {HISTORY_TEST_LEVEL,PEOPLE_TEST_LEVEL,GEOGRAPHY_TEST_LEVEL,BRAIN_TWISTER_TEST_LEVEL};
+    public static int[] HIGH_SCORE= {HISTORY_HIGH_SCORE,PEOPLE_HIGH_SCORE,GEOGRAPHY_HIGH_SCORE,BRAIN_TWISTER_HIGH_SCORE};
 }

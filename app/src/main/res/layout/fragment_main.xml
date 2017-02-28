@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    style="@style/base_match_match"
     android:clipChildren="false"
     android:clipToPadding="false"
-    style="@style/base_match_match">
+    android:background="#e9e9e9"
+    android:orientation="vertical">
 
     <com.min.answertest.view.ScaleRecyclerView
         android:id="@+id/recycler_card"
         android:layout_width="wrap_content"
-        android:layout_margin="@dimen/dp10"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="@dimen/dp10"
+        android:layout_margin="@dimen/dp16" />
 
     <com.hanks.htextview.HTextView
-        android:id="@+id/tv_explain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/red"
-        android:gravity="center"
+        android:id="@+id/tv_keyword"
+        style="@style/base_match_wrap"
         android:textSize="@dimen/sp25"
-        android:textColor="@color/white" />
+        android:layout_marginTop="@dimen/dp10"
+        android:textColor="@color/black6"/>
+
+    <LinearLayout
+        style="@style/base_match_wrap"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            style="@style/base_wrap_wrap"
+            android:text="@string/hard_level"
+            android:textSize="@dimen/sp25"
+            android:textColor="@color/black6"/>
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/rb_level"
+            style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <com.hanks.htextview.HTextView
+        android:id="@+id/tv_high_score"
+        style="@style/base_match_wrap"
+        android:gravity="start"
+        android:textSize="@dimen/sp25"
+        android:textColor="@color/black6"/>
 </LinearLayout>

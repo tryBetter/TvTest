@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AnswerTest</string>
     <string name="history">历史题目</string>
+    <string name="hard_level">难度指数：</string>
 </resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/base_match_match"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        style="@style/base_match_match"
+        android:layout_weight="50"
+        android:orientation="vertical">
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tv_title"
+            style="@style/common_text_style"
+            android:layout_margin="@dimen/dp12"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tv_question"
+            style="@style/common_text_style" />
+
+        <LinearLayout
+            style="@style/base_match_wrap"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.hanks.htextview.HTextView
+                    android:id="@+id/tv_a"
+                    style="@style/abcd_style" />
+
+                <com.hanks.htextview.HTextView
+                    android:id="@+id/tv_b"
+                    style="@style/abcd_style" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.hanks.htextview.HTextView
+                    android:id="@+id/tv_c"
+                    style="@style/abcd_style" />
+
+                <com.hanks.htextview.HTextView
+                    android:id="@+id/tv_d"
+                    style="@style/abcd_style" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/base_wrap_wrap"
+        android:orientation="vertical">
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tv_score"
+            style="@style/abcd_style" />
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tv_right_total"
+            style="@style/abcd_style" />
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tv_wrong_total"
+            style="@style/abcd_style" />
+
+    </LinearLayout>
+</LinearLayout>

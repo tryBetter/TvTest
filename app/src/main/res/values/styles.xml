@@ -28,4 +28,13 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="common_text_style" parent="base_match_wrap">
+        <item name="android:textColor">@color/black6</item>
+        <item name="android:textSize">@dimen/sp25</item>
+    </style>
+
+    <style name="abcd_style" parent="common_text_style">
+        <item name="android:layout_margin">@dimen/dp10</item>
+    </style>
+
 </resources>
